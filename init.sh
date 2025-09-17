@@ -218,7 +218,7 @@ download_url() {
         else
             ZBASENAME=""
         fi
-        (timeout 300 curl -s -S -R -L -O "$ZBASENAME" "$URL" || (echo "retrying curl $URL" && rm -f "$BASENAME" && curl -R -L -O "$URL")) && echo "Downloaded $URL"
+        (timeout 300 curl -s -S -R -L -O --insecure "$ZBASENAME" "$URL" || (echo "retrying curl $URL" && rm -f "$BASENAME" && curl -R -L -O --insecure "$URL")) && echo "Downloaded $URL"
     fi
 }
 
